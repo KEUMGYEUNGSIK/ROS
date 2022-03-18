@@ -1,0 +1,40 @@
+#include "ros/ros.h"
+#include "std_msgs/Int8.h"
+#include "std_msgs/Bool.h"
+#include "std_msgs/String.h"
+#include "sensor_msgs/Range.h" 			// ultrasonic sensor message
+#include "geometry_msgs/Twist.h"		// comd_vel
+
+std_msgs::Bool flag_AEB;
+
+void UltraSonarCallback2(const sensor_msgs::Bool::ConstPtr& msg)
+{
+	if(msg->data)
+	{
+		ROS_INFO("AEB_Activation!!");
+		flag_AEB.data = true;
+	}
+	else
+	{
+		flag_AEB.data = false;
+	}
+}
+
+int main(int argc, char **argv)
+{
+	
+	ros::init(argc, argv, "aeb_controller2");
+	
+	ros::NodeHandle n;
+	
+	ros::Rate loop_rate(1);
+	
+	ros::Subscriber sub1 = n.subscribe("range1", 1000, UltraSonarCallback2);
+	
+	while(ros::ok())
+	{
+		loop_rate.sleep();
+		ros::spinOnce();
+	}
+	return 0;
+}
