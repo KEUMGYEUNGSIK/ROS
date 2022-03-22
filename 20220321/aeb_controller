@@ -62,6 +62,8 @@ int main(int argc, char **argv)
 {
   int count = 0;
   
+  old_sonar_range.data = 0;
+  
   ros::init(argc, argv, "aeb_controller2");
 
   ros::NodeHandle n;
