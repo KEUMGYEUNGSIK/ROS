@@ -14,9 +14,9 @@ std_msgs::Bool flag_AEB;
 std_msgs::Float32 delta_range;
 std_msgs::Float32 old_sonar_range;
 std_msgs::Float32 before_range;
-geometry_msgs::Twist cmd_vel_msg;
-nav_msgs::Odometry pos, delta_pos, before_pos;
-nav_msgs::Odometry velocity;
+//geometry_msgs::Twist cmd_vel_msg;
+//nav_msgs::Odometry pos, delta_pos, before_pos;
+//nav_msgs::Odometry velocity;
 
 float x,y;
 float delta_x, delta_y;
